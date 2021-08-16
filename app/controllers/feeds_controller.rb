@@ -12,7 +12,11 @@ class FeedsController < ApplicationController
 
   # GET /feeds/new
   def new
-    @feed = Feed.new
+    if params[:back]
+      @feed = Feed.new(feed_params)
+    else
+      @feed = Feed.new
+    end
   end
 
   # GET /feeds/1/edit
@@ -56,14 +60,18 @@ class FeedsController < ApplicationController
     end
   end
 
+  def confirm
+    @feed = Feed.new(feed_params)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_feed
-      @feed = Feed.find(params[:id])
-    end
+  def set_feed
+    @feed = Feed.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def feed_params
-      params.require(:feed).permit(:image, :image_cache)
-    end
+  # Only allow a list of trusted parameters through.
+  def feed_params
+    params.require(:feed).permit(:image, :image_cache)
+  end
 end
