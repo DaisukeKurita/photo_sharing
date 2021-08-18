@@ -26,7 +26,6 @@ class FeedsController < ApplicationController
   # POST /feeds or /feeds.json
   def create
     @feed = Feed.new(feed_params)
-
     respond_to do |format|
       if @feed.save
         format.html { redirect_to @feed, notice: "Feed was successfully created." }
