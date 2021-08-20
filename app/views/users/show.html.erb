@@ -1,3 +1,6 @@
+<h1>User account information</h1>
 <%= image_tag @user.profile_image.url %>
 <h1><%= @user.name %>のページ</h1>
 <p>Email: <%= @user.email %></p>
+
+<%= link_to 'Editing User account', edit_user_path(@user) %>
