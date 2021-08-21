@@ -1,5 +1,6 @@
 class FeedsController < ApplicationController
   before_action :set_feed, only: %i[ show edit update destroy ]
+  before_action :login_only_operation, only: %i[ edit update destroy ]
 
   # GET /feeds or /feeds.json
   def index
@@ -65,13 +66,13 @@ class FeedsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
   def set_feed
     @feed = Feed.find(params[:id])
   end
-
-  # Only allow a list of trusted parameters through.
   def feed_params
     params.require(:feed).permit(:image, :image_cache, :content)
+  end
+  def login_only_operation
+    redirect_to feeds_path unless @feed.user == current_user
   end
 end
