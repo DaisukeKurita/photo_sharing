@@ -1,0 +1,7 @@
+<h1>いいねした写真</h1>
+
+<% @favorite.each do |favorite| %>
+  <tr>
+    <td><%= image_tag favorite.feed.image.url %></td>
+  </tr>
+<% end %>
