@@ -9,15 +9,15 @@
   </div>
 <% end %>
 <%= form_with(model: @user, local: true) do |f| %>
-  <%= f.label :Profile_image %>
+  <%= f.label :profile_image %>
   <%= f.file_field :profile_image %>
-  <%= f.label :Name %>
+  <%= f.label :name %>
   <%= f.text_field :name %>
-  <%= f.label :Email %>
+  <%= f.label :email %>
   <%= f.text_field :email %>
-  <%= f.label :Password %>
+  <%= f.label :password %>
   <%= f.text_field :password %>
-  <%= f.label :Password_Confirmation %>
+  <%= f.label :password_confirmation %>
   <%= f.text_field :password_confirmation %>
-  <%= f.submit "Create my account" %>
+  <%= f.submit %>
 <% end %>

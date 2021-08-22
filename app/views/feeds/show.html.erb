@@ -1,7 +1,7 @@
 <p>
-  <strong>Image:</strong>
+  <strong>image:</strong>
   <%= image_tag @feed.image.url %>
-  <strong>Content:</strong>
+  <strong>content:</strong>
   <%= @feed.content %>
 </p>
 
@@ -15,6 +15,6 @@
 <% end %>
 
 <% if @feed.user_id == current_user.id %>
-  <%= link_to 'Edit', edit_feed_path(@feed) %> |
+  <%= link_to 'edit', edit_feed_path(@feed) %> |
 <% end %>
-<%= link_to 'Back', feeds_path %>
+<%= link_to 'back', feeds_path %>

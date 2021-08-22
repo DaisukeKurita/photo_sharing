@@ -11,16 +11,16 @@
     </div>
   <% end %>
   <div class="field">
-    <%= form.label :Image %>
+    <%= form.label :image %>
     <%= image_tag(@feed.image.url) if @feed.image && @feed.image.url %>
     <%= form.file_field :image %>
     <%= form.hidden_field :image_cache %>
     <div class="field">
-      <%= form.label :ontent %>
+      <%= form.label :content %>
       <%= form.text_area :content %>
     </div>
   </div>
   <div class="actions">
-    <%= form.submit "To Confirmation Screen" %>
+    <%= form.submit %>
   </div>
 <% end %>
