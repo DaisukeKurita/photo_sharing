@@ -10,16 +10,27 @@
   </head>
 
   <body>
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key}")%>
-    <% end %>
-    <% if logged_in? %>
-      <%= link_to "Profile", user_path(current_user.id) %>
-      <%= link_to "Logout", session_path(current_user.id), method: :delete %>
-    <% else %>
-      <%= link_to "Sign up", new_user_path %>
-      <%= link_to "Login", new_session_path %>
-    <% end %>
+    <header>
+      <ul class="top_menu">
+        <% if logged_in? %>
+          <li><%= link_to "Profile", user_path(current_user.id) %></li>
+          <li><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
+          <li><%= link_to 'New Feed', new_feed_path %></li>
+          <li><%= link_to 'Index Feed', feeds_path %></li>
+          <li><%= link_to 'favorites', favorites_path %></li>
+        <% else %>
+          <li><%= link_to "Sign up", new_user_path %></li>
+          <li><%= link_to "Login", new_session_path %></li>
+        <% end %>
+      </ul>
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: "#{key}")%>
+      <% end %>
+    </header>
     <%= yield %>
+    <footer>
+      <p>運営会社 写真共有株式会社</p>
+      <p>© 2021- Photo sharing Corp.</p>
+    </footer>
   </body>
 </html>
